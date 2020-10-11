@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+.dropzone {
+  width: 33%;
+  height: 100%;
+  padding-top: 1%;
+  padding-left: 1%;
+  background-color: #eeeeee;
+  border: 0.5px solid #ffffff;
+  left: 100%;
+  border-radius: 10px;
+  text-align:center;
+
+}
+#target_zone{
+  display: flex;
+}
+
+#start_zone{
+  padding: 10px;
+  justify-content: space-around;
+}
+
+
+</style>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  var start_zone = document.getElementById("start_zone");
+  if (ev.target.tagName == 'DIV'){
+    var target = ev.target
+  } else {
+    var target = ev.target.parentNode
+  }
+  if (target.children.length > 1) {
+    for (var i = 0; i < target.childNodes.length; i++) {
+      var to_move = target.childNodes[i];
+      if (to_move.tagName == 'IMG') {
+        start_zone.appendChild(to_move);
+      }
+    }
+  }
+  target.setAttribute('data', data);
+  target.appendChild(document.getElementById(data));
+}
+
+</script>
+</head>
+<body>
+
+<p>Bitte ziehen Sie die Artikel unten in die Reihenfolge, in der Sie das Nachschlagen des Originalartikels interessiert.</p>
+
+<div id='target_zone'>
+<div id='prio_1' class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" data="">Sehr interessant. <br> <br></div>
+<div id='prio_2' class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" data="">Mittelmäßig interessant. <br><br></div>
+<div id='prio_3' class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" data="">Uninteressant. <br><br></div>
+</div>
+<br>
+<div id='start_zone'>
+<img id="drag0" class="article" src="" draggable="true" ondragstart="drag(event)">
+<img id="drag1" class="article" src="" draggable="true" ondragstart="drag(event)">
+<img id="drag2" class="article" src="" draggable="true" ondragstart="drag(event)">
+</div>
+
+<script>
+var imgs = ['./imgs/0_1_0_2_0_1.png',
+            './imgs/1_0_0_0_1_0.png',
+            './imgs/3_1_1_3_0_0.png']
+function set_imgs() {
+  for (var i = 0; i < imgs.length; i++) {
+    var to_fill = document.getElementById('drag' + i)
+    to_fill.setAttribute('src',imgs[i]);
+    to_fill.width = window.innerWidth * .25;
+  }
+  target = document.getElementsByClassName('dropzone');
+  for (var i = 0; i < target.length; i++) {
+    target[i].style.height = 1.2 * (.25 * window.innerWidth / 439) * 720 + 'px';
+  }
+}
+window.onload = set_imgs;
+</script>
+</body>
+</html>
