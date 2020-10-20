@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="page.css">
+<script src="init.js"></script>
+<script src="drag_drop.js"></script>
+<script src="mockup_builder.js"></script>
+</head>
+<body>
+
+<h5>Bitte ziehen Sie die Artikel unten in die Reihenfolge, in der Sie das Nachschlagen des Originalartikels interessiert.</h5>
+
+<div id="target_zone">
+<div id="prio_1" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" data="">Sehr interessant. <br> <br></div>
+<div id="prio_2" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" data="">Mittelmäßig interessant. <br><br></div>
+<div id="prio_3" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" data="">Uninteressant. <br><br></div>
+</div>
+<br>
+<div id="start_zone">
+<div id="drag0" class="canvas" draggable="true" ondragstart="drag(event)"></div>
+<div id="drag1" class="canvas" draggable="true" ondragstart="drag(event)"></div>
+<div id="drag2" class="canvas" draggable="true" ondragstart="drag(event)"></div>
+</div>
+
+
+</body>
+</html>

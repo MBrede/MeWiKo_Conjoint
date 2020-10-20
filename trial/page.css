@@ -1,0 +1,58 @@
+
+.dropzone {
+  display: table-cell;
+  padding-top: 1%;
+  padding-left: 1%;
+  background-color: #eeeeee;
+  border: 0.5px solid #ffffff;
+  border-radius: 10px;
+  text-align:left;
+}
+#target_zone{
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+#start_zone{
+  padding: 10px;
+  justify-content: space-around;
+  display: flex;
+}
+
+.canvas{
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 10px 0 rgba(0,0,0,.2);
+}
+
+.first_text{
+  position: absolute;
+  top: 130px;
+  left: 20px;
+  font-family: FreeSerif;
+  font-size: 15px;
+  text-align:left;
+}
+
+.snd_text{
+  position: absolute;
+  top: 270px;
+  left: 20px;
+  font-family: FreeSerif;
+  font-size: 15px;
+  text-align:left;
+}
+
+
+.first_mask{
+  position: absolute;
+  left: -.50%;
+  text-align:left;
+}
+
+.snd_mask{
+  position: absolute;
+  left: -.50%;
+  text-align:left;
+}
